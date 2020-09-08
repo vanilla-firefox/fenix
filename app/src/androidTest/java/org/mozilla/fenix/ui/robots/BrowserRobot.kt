@@ -292,13 +292,13 @@ class BrowserRobot {
 
     fun clickLinkMatchingText(expectedText: String) {
         val element = mDevice.findObject(UiSelector().text(expectedText))
-        element.waitForExists(waitingTime)
+        assertTrue(element.waitForExists(waitingTime))
         element.click()
     }
 
     fun longClickMatchingText(expectedText: String) {
         val element = mDevice.findObject(UiSelector().text(expectedText))
-        element.waitForExists(waitingTime)
+        assertTrue(element.waitForExists(waitingTime))
         element.longClick()
     }
 
