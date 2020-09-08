@@ -291,19 +291,15 @@ class BrowserRobot {
     }
 
     fun clickLinkMatchingText(expectedText: String) {
-        val mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
-        mDevice.waitNotNull(Until.findObject(text(expectedText)), waitingTime)
-
-        val element = mDevice.findObject(text(expectedText))
+        val element = mDevice.findObject(UiSelector().text(expectedText))
+        element.waitForExists(waitingTime)
         element.click()
     }
 
     fun longClickMatchingText(expectedText: String) {
-        val mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
-        mDevice.waitNotNull(Until.findObject(text(expectedText)), waitingTime)
-
-        val element = mDevice.findObject(text(expectedText))
-        element.click(LONG_CLICK_DURATION)
+        val element = mDevice.findObject(UiSelector().text(expectedText))
+        element.waitForExists(waitingTime)
+        element.longClick()
     }
 
     fun snackBarButtonClick(expectedText: String) {
