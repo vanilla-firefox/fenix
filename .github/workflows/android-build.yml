@@ -2,9 +2,9 @@ name: Android Build
 
 on:
   push:
-    branches: [ fork ]
+    branches: [ master ]
   pull_request:
-    branches: [ fork ]
+    branches: [ master ]
 
 jobs:
   build:
@@ -18,4 +18,4 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Gradle
-      run: ./gradlew assembleForkRelease -PversionName="$(git describe --tags HEAD)"
+      run: ./gradlew build
